@@ -21,3 +21,13 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'],  function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
