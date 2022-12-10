@@ -62,8 +62,15 @@ class User extends Authenticatable
     /**
      * The roles that belong to the user.
      */
-    public function roles()
+    public function role()
     {
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id')->withTimestamps();
+    }
+
+    public function hasRole($role)
+    {
+        foreach ($this->role as $cekRole) {
+            return  $cekRole->name == $role;
+        }
     }
 }

@@ -16,11 +16,11 @@
 
                     @csrf
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control  @error('username') is-invalid @enderror" id="username"
-                            name="username" autocomplete="off" value="{{ old('username') }}" placeholder="Username">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control  @error('email') is-invalid @enderror" id="email"
+                            name="email" autocomplete="off" value="{{ old('email') }}" placeholder="email">
 
-                        @error('username')
+                        @error('email')
                             <span class="invalid-feedback">
                                 {{ $message }}
                             </span>
